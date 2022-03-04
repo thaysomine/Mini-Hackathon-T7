@@ -43,3 +43,7 @@ h2 {
 .hidden {
     display: none;
 }
+
+.weather{
+    width: 250px;
+}
