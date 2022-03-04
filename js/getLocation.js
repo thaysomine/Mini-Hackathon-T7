@@ -18,7 +18,9 @@ function fetchApi(url) {
     })
     .then((data) => {
       let tempInCelsius = ((5/9) * (data.main.temp-32)).toFixed(1);
+      
       city.innerText = `${data.name}`;
+
       temp.innerText = tempInCelsius;
     })
     .catch((err) => {
