@@ -6,15 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/page.css">
 </head>
 
 <body>
     <div id="wrapper">
-        <h1 class="city"></h1>
-        <h2><span>0</span>ºC</h2>
+        <h1 id="city"></h1>
+        <h2><span>0</span><b>ºC</b></h2>
+        <div id="weather">
+            <img id="icon" src="" />
+            <p id="description">Teste</p>
+        </div>
         <button onclick="getUserPosition()">Pegar localização</button>
         <p></p>
     </div>
