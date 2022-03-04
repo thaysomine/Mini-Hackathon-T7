@@ -3,21 +3,27 @@ function getUserPosition() {
     teste = document.querySelector("input").value
     console.log(teste);
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            let lat = position.coords.latitude
-            let long = position.coords.longitude
-            APIResponse = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&lang=pt_br&APPID=b67a9b270cd29faea4ee61edb7d0b5dc`;
-            renderWeather(APIResponse)
-          });
+        navigator.geolocation.getCurrentPosition(renderWeather, showError)
     }
-    // Se recursar a localição 
     else{
-      APIResponse = `https://api.openweathermap.org/data/2.5/weather?q=${teste}&units=imperial&lang=pt_br&APPID=b67a9b270cd29faea4ee61edb7d0b5dc`
+      console.log("teste");
     }
   }
 
-  
-function renderWeather(APIResponse) {
+function showError(){
+  let locationInput = document.querySelector("input").value;
+  console.log(locationInput);
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=b67a9b270cd29faea4ee61edb7d0b5dc`;
+  fetch(url).then((data) => {
+    console.log(data.json());
+});
+}
+
+
+function renderWeather(position) {
+    let lat = position.coords.latitude
+    let long = position.coords.longitude
+    APIResponse = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&lang=pt_br&APPID=b67a9b270cd29faea4ee61edb7d0b5dc`;
     let city = document.querySelector('#city');
     let temp = document.querySelector('span');
     let icon = document.querySelector('#icon');
