@@ -15,13 +15,12 @@
     <div id="wrapper">
 
         <h1 id="city"></h1>
-        
+        <h2><span></span><b></b></h2>
         <div id="weather">
-            <img id="icon" src="" />
-            <h2><span>0</span>ºC</h2>
-            <p id="description">Teste</p>
+            <p id="description"></p>
+            <img id="icon" class="hidden" src="" />
         </div>
-        <button onclick="getUserPosition(), getLocation()">Pegar localização</button>
+        <button onclick="getUserPosition(), getLocation(), nextPage()">Pegar localização</button>
         <input type="text">
         <p></p>
     </div>
