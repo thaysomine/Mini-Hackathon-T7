@@ -6,7 +6,6 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    items-align: center;
     justify-content: center;
     font-family: 'Arial';
     font-size: 16px;
