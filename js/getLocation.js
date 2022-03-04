@@ -15,10 +15,15 @@ function showError(){
   console.log(locationInput);
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=b67a9b270cd29faea4ee61edb7d0b5dc`;
   fetch(url).then((data) => {
-    console.log(data.json());
-});
+    return data.json()
+}).then((data) => {
+  let tempCelsius = ((5/9) * (data.main.temp-32)).toFixed(1)
+  city.innerText = `${data.name}`
+  temp.innerText = tempCelsius
+  description.innerText = `${data.weather[0].description}`;
+  icon.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+})
 }
-
 
 function renderWeather(position) {
     let lat = position.coords.latitude
